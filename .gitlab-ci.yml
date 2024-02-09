@@ -1,0 +1,20 @@
+stages:
+  - build
+  - test
+  - deploy
+
+build:
+  stage: build
+  script:
+    - yarn install
+    - yran  build
+
+test:
+  stage: test
+  script:
+    - yarn test
+
+deploy:
+  stage: deploy
+  script:
+    - scp -r build user@localhost:/var/www/html
